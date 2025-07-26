@@ -29,5 +29,5 @@ src/
         ├── model/        # Data models (e.g. Question, Category)
         └── Main.java     # Application entry point
 
-
-Of course ReadMe written by ChatGPT 
+```
+Of course the ReadMe is written by ChatGPT 
