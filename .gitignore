@@ -1,0 +1,10 @@
+# Maven
+target/
+*.class
+
+# VS Code
+.vscode/
+
+# Sonstiges
+*.log
+*.tmp
