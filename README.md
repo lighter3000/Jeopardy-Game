@@ -22,12 +22,13 @@ A simple but extendable quiz game inspired by Jeopardy – built with Java, MySQ
 ```text
 src/
 └── main/
-    └── java/
+    ├── java/
         ├── db/           # Database access (JDBC)
         ├── gui/          # User interface (future)
         ├── logic/        # Game control logic
         ├── model/        # Data models (e.g. Question, Category)
         └── Main.java     # Application entry point
+    └── resources/
 
 ```
-Of course the ReadMe is written by ChatGPT 
+Of course the ReadMe is written by ChatGPT, will be manually written later on
