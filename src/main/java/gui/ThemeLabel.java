@@ -17,7 +17,7 @@ public class ThemeLabel extends JLabel{
     public ThemeLabel addThemes(int count){
         
         if(count < 3 || count > 5){
-            throw new IllegalArgumentException("");
+            throw new IllegalArgumentException("Please use between 3 and 5 Themes");
         }
         
         ThemeLabel[] newThemes = new ThemeLabel[count];
@@ -37,7 +37,7 @@ public class ThemeLabel extends JLabel{
     }
 
     private QuestionLabel addQuestion(){
-        QuestionLabel q = new QuestionLabel();
+        QuestionLabel q = new QuestionLabel(1, 1, "Q", "A", 1);
         
 
         return q;

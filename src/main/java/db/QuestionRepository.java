@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 
 import model.Question;
 import java.sql.SQLException;
-import java.sql.Statement;
+//import java.sql.Statement;
 
 public class QuestionRepository {
 

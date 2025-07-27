@@ -7,16 +7,31 @@ import java.util.Random;
 
 public class Category {
 
+    private int id;
     private String category;
-    private List<Question> question;
+    private List<Question> questions;
 
-    public Category(String category, Question[] question){ // Später vielleicht automatisch in die Datenbank einfügen
+    public Category(int id, String category, Question[] questions){ // Später vielleicht automatisch in die Datenbank einfügen
+        this.id = id;
         this.category = category;
-        this.question = new ArrayList<>(Arrays.asList(question));
+        this.questions = new ArrayList<>(Arrays.asList(questions));
+    }
+
+    public Category(int id, String category){
+        this.id = id;
+        this.category = category;
+    }
+
+    public void addQuestion(Question q){
+        questions.add(q);
+    }
+
+    public String getCategory(){
+        return category;
     }
 
     public List<Question> getAllQuestion(){
-        return question;
+        return questions;
     }
 
     public List<Question> getXQuestions(int x){ // Später mit Datenbankverbindung ersetzen (?)
@@ -25,9 +40,11 @@ public class Category {
         int n=0;
         for(int i=0; i<x; i++){
             n = rand.nextInt(x);
-            result.add(question.get(x));
+            result.add(questions.get(n));
         }
         return result;
     }
+
+
     
 }

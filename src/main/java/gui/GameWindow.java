@@ -11,5 +11,11 @@ public class GameWindow extends JFrame{
         setVisible(true);
     }
 
+    public void addThemes(){
+        
+    }
+
+
+
     
 }

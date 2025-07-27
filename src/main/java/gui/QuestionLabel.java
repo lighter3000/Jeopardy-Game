@@ -2,7 +2,7 @@ package gui;
 
 import javax.swing.*;
 
-import db.QuestionRepository;
+//import db.QuestionRepository;
 import model.Question;
 
 public class QuestionLabel extends JButton{
