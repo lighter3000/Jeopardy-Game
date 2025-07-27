@@ -4,13 +4,13 @@ import gui.GameWindow;
 
 public class Main {
     
-    public static void startGame(int playerCount, int amountThemes){
+    public static void startGame(int playerCount, int amountCategories){
         
         /*
          * GamePart
          */
         GameWindow gw = new GameWindow("Jeopardy");
-        gw.addThemes();
+        gw.addCategories(amountCategories);
 
 
 

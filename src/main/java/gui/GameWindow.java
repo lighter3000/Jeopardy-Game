@@ -1,6 +1,10 @@
 package gui;
 
 import javax.swing.*;
+import java.util.*;
+
+import generator.CategoryGenerator;
+import model.*;
 
 public class GameWindow extends JFrame{
     
@@ -11,7 +15,8 @@ public class GameWindow extends JFrame{
         setVisible(true);
     }
 
-    public void addThemes(){
+    public void addCategories(int amountCategories){
+        List<Category> categories = CategoryGenerator.generateCategories(amountCategories);
         
     }
 

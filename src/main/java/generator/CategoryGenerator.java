@@ -22,7 +22,7 @@ import db.DBConnector;
 
 public class CategoryGenerator {
 
-    public List<Category> generateCategories(int amountCategories){
+    public static List<Category> generateCategories(int amountCategories){
         List<Category> result = new ArrayList<>();
 
         try (Connection con = DBConnector.connect()) {
