@@ -17,6 +17,12 @@ import db.DBConnector;
  * Catch Exceptions
  * What if there are no questions or categories
  * Limit amountCategories
+ * 
+ * 
+ * Refactor multi-UNION query:
+ * Try loading 5 random questions with different difficulties in a more elegant way,
+ * ideally without repeating the query 5 times.
+ * 
  */
 
 
@@ -27,7 +33,7 @@ public class CategoryGenerator {
 
         try (Connection con = DBConnector.connect()) {
             String query = """
-                    SELECT DISTINCT id, name FROM categories ORDER BY RANDOM() LIMIT ?
+                    SELECT DISTINCT id, name FROM categories ORDER BY rand() LIMIT ?
                     """;
             PreparedStatement s = con.prepareStatement(query);
             s.setInt(1, amountCategories);
@@ -79,7 +85,6 @@ public class CategoryGenerator {
                         ORDER BY RAND()
                         LIMIT 1
                     )
-                    ORDER BY difficulty;
                     """;
                 PreparedStatement sQuestion = con.prepareStatement(queryQuestion);
                 for(int i=1; i<=5; i++){
@@ -97,6 +102,9 @@ public class CategoryGenerator {
                         rsQuestion.getInt("difficulty"));
                     category.addQuestion(q);
                 }
+
+                rsQuestion.close();
+                sQuestion.close();
                 result.add(category);
 
             }

@@ -13,7 +13,7 @@ public class Main {
         gw.addCategories(amountCategories);
 
 
-
+        gw.setVisible(true);
         /*
          * PlayerPart
          */

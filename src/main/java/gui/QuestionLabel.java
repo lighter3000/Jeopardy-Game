@@ -11,7 +11,9 @@ public class QuestionLabel extends JButton{
 
     public QuestionLabel(int id, int category_id, String question, String answer, int difficulty){
         q = new Question(id, category_id, question, answer, difficulty);
-        setSize(250, 125);
+        setSize(150, 125);
+
+        
         setText(q.getQuestion());
     }
 

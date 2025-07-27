@@ -20,6 +20,7 @@ public class Category {
     public Category(int id, String category){
         this.id = id;
         this.category = category;
+        this.questions = new ArrayList<>();
     }
 
     public void addQuestion(Question q){

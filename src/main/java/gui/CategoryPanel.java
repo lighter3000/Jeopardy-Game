@@ -2,6 +2,9 @@ package gui;
 
 import javax.swing.*;
 
+import java.awt.Dimension;
+import java.awt.GridLayout;
+
 import model.Category;
 import model.Question;
 
@@ -9,8 +12,9 @@ public class CategoryPanel extends JPanel{
 
     public CategoryPanel(Category category){
         super();
-        setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-        setSize(300, 855);
+        setLayout(new GridLayout(6,1));
+        setPreferredSize(new Dimension(200, 900));
+        setMaximumSize(getMaximumSize());
         JLabel categoryLabel = new JLabel(category.getCategory());
         add(categoryLabel);
         for(Question q : category.getAllQuestion()){
