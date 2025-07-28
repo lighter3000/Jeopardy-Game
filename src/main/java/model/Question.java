@@ -33,7 +33,7 @@ public class Question {
     }
 
     public int getPoints(){
-        return difficulty * 200;
+        return difficulty * 10;
     }
 
     

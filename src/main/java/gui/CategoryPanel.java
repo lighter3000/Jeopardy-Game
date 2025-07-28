@@ -15,7 +15,9 @@ public class CategoryPanel extends JPanel{
         setLayout(new GridLayout(6,1));
         setPreferredSize(new Dimension(200, 900));
         setMaximumSize(getMaximumSize());
+
         JLabel categoryLabel = new JLabel(category.getCategory());
+        categoryLabel.setHorizontalAlignment(JLabel.CENTER);
         add(categoryLabel);
         for(Question q : category.getAllQuestion()){
             addQuestionLabel(q);
