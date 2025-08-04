@@ -37,7 +37,7 @@ public class ThemeLabel extends JLabel{
     }
 
     private QuestionLabel addQuestion(){
-        QuestionLabel q = new QuestionLabel(1, 1, "Q", "A", 1);
+        QuestionLabel q = new QuestionLabel(1, "name", "Q", "A", 1);
         
 
         return q;

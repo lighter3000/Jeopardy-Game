@@ -25,11 +25,11 @@ public class DatabaseInitializer {
             String createQuestions = """
                     CREATE TABLE IF NOT EXISTS questions (
                     id INT AUTO_INCREMENT PRIMARY KEY,
-                    category_id INT NOT NULL,
+                    category_name VARCHAR(255) NOT NULL,
                     question TEXT NOT NULL UNIQUE,
                     answer TEXT NOT NULL,
                     difficulty INT CHECK (difficulty IN (1, 2, 3, 4, 5)),
-                    FOREIGN KEY (category_id) REFERENCES categories(id)
+                    FOREIGN KEY (category_name) REFERENCES categories(name)
                     );
                     """;
             
@@ -80,14 +80,14 @@ public class DatabaseInitializer {
                     if (!headerSkipped) { headerSkipped = true; continue; }
 
                     String[] parts = line.split(",");
-                    int categoryId = Integer.parseInt(parts[0]);
+                    String categoryName = parts[0];
                     String question = parts[1];
                     String answer = parts[2];
                     int difficulty = Integer.parseInt(parts[3]);
 
                     // INSERT INTO categories (name) VALUES (?)
-                    try (PreparedStatement stmt = con.prepareStatement("INSERT INTO questions (category_id, question, answer, difficulty) VALUES (?,?,?,?)")) {
-                        stmt.setInt(1, categoryId);
+                    try (PreparedStatement stmt = con.prepareStatement("INSERT INTO questions (category_name, question, answer, difficulty) VALUES (?,?,?,?)")) {
+                        stmt.setString(1, categoryName);
                         stmt.setString(2, question);
                         stmt.setString(3, answer);
                         stmt.setInt(4, difficulty);

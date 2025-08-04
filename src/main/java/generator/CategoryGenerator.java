@@ -47,48 +47,48 @@ public class CategoryGenerator {
 
                 String queryQuestion = """
                     (
-                        SELECT id, category_id, question, answer, difficulty
+                        SELECT id, category_name, question, answer, difficulty
                         FROM questions
-                        WHERE category_id = ? AND difficulty = 1
+                        WHERE category_name = ? AND difficulty = 1
                         ORDER BY RAND()
                         LIMIT 1
                     )
                     UNION ALL
                     (
-                        SELECT id, category_id, question, answer, difficulty
+                        SELECT id, category_name, question, answer, difficulty
                         FROM questions
-                        WHERE category_id = ? AND difficulty = 2
+                        WHERE category_name = ? AND difficulty = 2
                         ORDER BY RAND()
                         LIMIT 1
                     )
                     UNION ALL
                     (
-                        SELECT id, category_id, question, answer, difficulty
+                        SELECT id, category_name, question, answer, difficulty
                         FROM questions
-                        WHERE category_id = ? AND difficulty = 3
+                        WHERE category_name = ? AND difficulty = 3
                         ORDER BY RAND()
                         LIMIT 1
                     )
                     UNION ALL
                     (
-                        SELECT id, category_id, question, answer, difficulty
+                        SELECT id, category_name, question, answer, difficulty
                         FROM questions
-                        WHERE category_id = ? AND difficulty = 4
+                        WHERE category_name = ? AND difficulty = 4
                         ORDER BY RAND()
                         LIMIT 1
                     )
                     UNION ALL
                     (
-                        SELECT id, category_id, question, answer, difficulty
+                        SELECT id, category_name, question, answer, difficulty
                         FROM questions
-                        WHERE category_id = ? AND difficulty = 5
+                        WHERE category_name = ? AND difficulty = 5
                         ORDER BY RAND()
                         LIMIT 1
                     )
                     """;
                 PreparedStatement sQuestion = con.prepareStatement(queryQuestion);
                 for(int i=1; i<=5; i++){
-                    sQuestion.setInt(i, category_id);
+                    sQuestion.setString(i, categoryName);
                 }
                 
                 ResultSet rsQuestion = sQuestion.executeQuery();
@@ -96,7 +96,7 @@ public class CategoryGenerator {
                 while(rsQuestion.next()){
                     Question q = new Question(
                         rsQuestion.getInt("id"), 
-                        rsQuestion.getInt("category_id"), 
+                        rsQuestion.getString("category_name"), 
                         rsQuestion.getString("question"), 
                         rsQuestion.getString("answer"), 
                         rsQuestion.getInt("difficulty"));

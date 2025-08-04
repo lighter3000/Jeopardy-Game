@@ -32,3 +32,13 @@ src/
 
 ```
 Of course the ReadMe is written by ChatGPT, will be manually written later on
+
+
+
+## TODO
+
+- Admin Window
+- Arduino Connection for Buttons
+- ~Rework QuestionToCategory (instead of numbers being the connection, let it be words)~ -- Done
+- More Topics and Questions
+- Players and Pointsystem (being displayed either on admin Window or somewhere else)

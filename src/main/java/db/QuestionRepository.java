@@ -25,7 +25,7 @@ public class QuestionRepository {
             if(rs.next()){
                 question = new Question(
                     rs.getInt("id"), 
-                    rs.getInt("category_id"), 
+                    rs.getString("category_name"), 
                     rs.getString("question"), 
                     rs.getString("answer"), 
                     rs.getInt("difficulty"));

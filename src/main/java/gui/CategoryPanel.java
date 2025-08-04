@@ -27,7 +27,7 @@ public class CategoryPanel extends JPanel{
 
     private void addQuestionLabel(Question question){
         QuestionLabel qL = new QuestionLabel(question.getId(), 
-                question.getCategory_id(), 
+                question.getCategoryName(), 
                 question.getQuestion(), 
                 question.getAnswer(), 
                 question.getPoints());

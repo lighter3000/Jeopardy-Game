@@ -13,8 +13,8 @@ public class QuestionLabel extends JButton{
 
     private Question q;
 
-    public QuestionLabel(int id, int category_id, String question, String answer, int difficulty){
-        q = new Question(id, category_id, question, answer, difficulty);
+    public QuestionLabel(int id, String category_name, String question, String answer, int difficulty){
+        q = new Question(id, category_name, question, answer, difficulty);
         setSize(150, 125);
         addActionListener(new ActionListener() {
             @Override
