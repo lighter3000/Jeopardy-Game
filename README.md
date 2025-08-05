@@ -37,11 +37,13 @@ Of course the ReadMe is written by ChatGPT, will be manually written later on
 
 ## TODO
 
-- Admin Window (NEXT)
+- Admin Window (currently working on it)
 - Arduino Connection for Buttons
 - ~Rework QuestionToCategory (instead of numbers being the connection, let it be words)~ -- Done
 - More Topics and Questions
-- Players and Pointsystem (being displayed either on admin Window or somewhere else)
+- Players and Pointsystem (being displayed either on admin Window or somewhere else) (currently working on it)
+
+- <span style="color:red">red text</span> and <span style="color:green">green text</span>
 
 
 ## Future Ideas if I want to (for this project)
