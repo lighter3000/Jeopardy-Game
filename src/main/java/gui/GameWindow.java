@@ -8,6 +8,8 @@ import model.*;
 
 public class GameWindow extends JFrame{
     
+    private static List<Category> categories;
+
     public GameWindow(String text){
         super(text);
         setLayout(new BoxLayout(getContentPane(), BoxLayout.X_AXIS));
@@ -16,7 +18,7 @@ public class GameWindow extends JFrame{
     }
 
     public void addCategories(int amountCategories){
-        List<Category> categories = CategoryGenerator.generateCategories(amountCategories);
+        categories = CategoryGenerator.generateCategories(amountCategories);
         for(Category category : categories){
             addCategory(category);
         }
@@ -27,6 +29,10 @@ public class GameWindow extends JFrame{
     private void addCategory(Category category){
         CategoryPanel catP = new CategoryPanel(category);
         getContentPane().add(catP);
+    }
+
+    public static List<Category> getCategories(){
+        return categories;
     }
 
 

@@ -37,8 +37,13 @@ Of course the ReadMe is written by ChatGPT, will be manually written later on
 
 ## TODO
 
-- Admin Window
+- Admin Window (NEXT)
 - Arduino Connection for Buttons
 - ~Rework QuestionToCategory (instead of numbers being the connection, let it be words)~ -- Done
 - More Topics and Questions
 - Players and Pointsystem (being displayed either on admin Window or somewhere else)
+
+
+## Future Ideas if I want to (for this project)
+
+- Dynamically change the size of the CategoriesLabels depending on the amount (and therefore increase the amount of categories)
