@@ -43,8 +43,6 @@ Of course the ReadMe is written by ChatGPT, will be manually written later on
 - More Topics and Questions
 - Players and Pointsystem (being displayed either on admin Window or somewhere else) (currently working on it)
 
-- <span style="color:red">red text</span> and <span style="color:green">green text</span>
-
 
 ## Future Ideas if I want to (for this project)
 
