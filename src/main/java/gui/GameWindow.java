@@ -15,6 +15,7 @@ public class GameWindow extends JFrame{
         setLayout(new BoxLayout(getContentPane(), BoxLayout.X_AXIS));
         setSize(1440, 1000);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
     }
 
     public void addCategories(int amountCategories){
