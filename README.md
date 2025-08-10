@@ -41,7 +41,8 @@ Of course the ReadMe is written by ChatGPT, will be manually written later on
 - Arduino Connection for Buttons
 - ~Rework QuestionToCategory (instead of numbers being the connection, let it be words)~ -- Done
 - More Topics and Questions
-- Players and Pointsystem (being displayed either on admin Window or somewhere else) (currently working on it)
+- ~Players and Pointsystem (being displayed either on admin Window or somewhere else)~ -- Done
+- Make it possible to add points to the players via AdminWindow (currently working on it)
 
 
 ## Future Ideas if I want to (for this project)
