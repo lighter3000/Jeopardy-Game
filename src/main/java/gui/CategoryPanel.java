@@ -13,7 +13,7 @@ public class CategoryPanel extends JPanel{
     public CategoryPanel(Category category){
         super();
         setLayout(new GridLayout(6,1));
-        setPreferredSize(new Dimension(200, 900));
+        setPreferredSize(new Dimension(200, 700));
         setMaximumSize(getMaximumSize());
 
         JLabel categoryLabel = new JLabel(category.getCategory());

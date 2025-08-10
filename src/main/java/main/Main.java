@@ -46,11 +46,11 @@ public class Main{
 
         GameWindow gw = new GameWindow("GameWindow - Jeopardy");
         gw.addCategories(amountCategories);
-        // gw.addPlayerNames(players); // Need to implement it 
+        gw.addPlayers(players);
 
         AdminWindow aw = new AdminWindow("AdminWindow - Jeopardy");
         aw.copyCategories();
-        // aw.addPlayerNames(players);
+        aw.addPlayers(players);
 
         gw.setVisible(true);
         aw.setVisible(true);
