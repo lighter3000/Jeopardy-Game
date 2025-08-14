@@ -2,6 +2,7 @@ package gui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.util.List;
@@ -22,7 +23,7 @@ public class AdminWindow extends JFrame{
     private final JPanel playersBar;
     private final boolean isAdminMode = true;
 
-    private Player[] players;
+    private JLabel[] playersJLabel;
     
     public AdminWindow(String text){
         super(text);
@@ -69,14 +70,26 @@ public class AdminWindow extends JFrame{
     
 
     public void addPlayers(Player[] players) {
-        this.players = players;
         playersBar.setLayout(new GridLayout(1, 0, 8, 0)); // 1 row, as many columns as needed
         playersBar.setBorder(BorderFactory.createEmptyBorder(8, 8, 8, 8));
 
         playersBar.removeAll();
+
+        playersJLabel = new JLabel[players.length]; 
         if (players != null) {
             for (Player p : players) {
                 playersBar.add(addPlayerLabel(p));
+            }
+        }
+
+        for(Component catP : categoriesContainer.getComponents()){
+            if(catP instanceof CategoryPanel categoryPanel){
+                for(Component comp : categoryPanel.getComponents()){
+                    if(comp instanceof QuestionLabel ql){
+                        ql.setPlayers(players);
+                        ql.setPointsLabels(playersJLabel);
+                    }
+                }
             }
         }
         playersBar.revalidate();
@@ -95,19 +108,13 @@ public class AdminWindow extends JFrame{
         name.setFont(new Font("SansSerif", Font.BOLD, 14));
 
         JLabel points = new JLabel(pointsVal + " pts", SwingConstants.CENTER);
+        playersJLabel[player.getPlayerId()] = points;
 
         card.add(name);
         card.add(points);
         return card;
     }
 
-    /*
-     * Adds points to the player for answering the question right
-     * 
-     */
-    public void addPointsToPlayer(Player player, int points){
-
-    }
 
 
     

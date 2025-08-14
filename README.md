@@ -42,8 +42,9 @@ Of course the ReadMe is written by ChatGPT, will be manually written later on
 - ~Rework QuestionToCategory (instead of numbers being the connection, let it be words)~ -- Done
 - More Topics and Questions
 - ~Players and Pointsystem (being displayed either on admin Window or somewhere else)~ -- Done
-- Make it possible to add points to the players via AdminWindow (currently working on it)
+- ~Make it possible to add points to the players via AdminWindow~ -- Done, but can be rewritten (GameWindow, AdminWindow, QuestionLabel)
 - Make the code better (f.e. AdminWindow and GameWindow are inherited by another super class)
+- Rewrite the communications between classes with an interface
 
 
 ## Future Ideas if I want to (for this project)

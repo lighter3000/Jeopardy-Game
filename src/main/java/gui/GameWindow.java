@@ -16,6 +16,8 @@ public class GameWindow extends JFrame{
     private final boolean isAdminMode = false;
     private final JPanel categoriesContainer;
     private final JPanel playersBar;
+
+    private static JLabel[] playersJLabel;
     private static List<Category> categories;
 
     public GameWindow(String text){
@@ -59,11 +61,12 @@ public class GameWindow extends JFrame{
     }
 
     public void addPlayers(Player[] players) {
-        
         playersBar.setLayout(new GridLayout(1, 0, 8, 0)); // 1 row, as many columns as needed
         playersBar.setBorder(BorderFactory.createEmptyBorder(8, 8, 8, 8));
 
         playersBar.removeAll();
+
+        playersJLabel = new JLabel[players.length]; 
         if (players != null) {
             for (Player p : players) {
                 playersBar.add(addPlayerLabel(p));
@@ -85,11 +88,20 @@ public class GameWindow extends JFrame{
         name.setFont(new Font("SansSerif", Font.BOLD, 14));
 
         JLabel points = new JLabel(pointsVal + " pts", SwingConstants.CENTER);
+        playersJLabel[player.getPlayerId()] = points;
 
         card.add(name);
         card.add(points);
         return card;
     }
+
+    public static void updatePlayerPoints(Player player) {
+    // prüfe, ob das JLabel existiert
+    if (playersJLabel != null && playersJLabel[player.getPlayerId()] != null) {
+        playersJLabel[player.getPlayerId()].setText(player.getPlayerPoints() + " pts");
+    }
+}
+
 
 
 
