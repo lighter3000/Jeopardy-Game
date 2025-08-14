@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.swing.*;
 
+import model.Question;
+
 public class ThemeLabel extends JLabel{
     
     public ThemeLabel(String theme){
@@ -37,10 +39,11 @@ public class ThemeLabel extends JLabel{
     }
 
     private QuestionLabel addQuestion(){
-        QuestionLabel q = new QuestionLabel(1, "name", "Q", "A", 1);
+        Question q = new Question(1, "name", "Q", "A", 1);
+        QuestionLabel qL = new QuestionLabel(q, false);
         
 
-        return q;
+        return qL;
     }
 
 }

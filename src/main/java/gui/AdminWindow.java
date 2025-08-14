@@ -20,6 +20,9 @@ public class AdminWindow extends JFrame{
 
     private final JPanel categoriesContainer;
     private final JPanel playersBar;
+    private final boolean isAdminMode = true;
+
+    private Player[] players;
     
     public AdminWindow(String text){
         super(text);
@@ -56,15 +59,17 @@ public class AdminWindow extends JFrame{
      * @param category
      */
     private void addCategory(Category category){
-        CategoryPanel catP = new CategoryPanel(category);
+        CategoryPanel catP = new CategoryPanel(category, isAdminMode);
         categoriesContainer.add(catP, BorderLayout.CENTER);
     }
+
+    
 
 
     
 
     public void addPlayers(Player[] players) {
-        
+        this.players = players;
         playersBar.setLayout(new GridLayout(1, 0, 8, 0)); // 1 row, as many columns as needed
         playersBar.setBorder(BorderFactory.createEmptyBorder(8, 8, 8, 8));
 
@@ -94,6 +99,14 @@ public class AdminWindow extends JFrame{
         card.add(name);
         card.add(points);
         return card;
+    }
+
+    /*
+     * Adds points to the player for answering the question right
+     * 
+     */
+    public void addPointsToPlayer(Player player, int points){
+
     }
 
 

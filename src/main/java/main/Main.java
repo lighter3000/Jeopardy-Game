@@ -188,7 +188,7 @@ public class Main{
     
     public static void main(String[] args) {
         // Add Window to ask for playerCount and amountCategories - Done it
-        // After that for the playerNames
+        // After that for the playerNames - Done it
 
         gameOptions();
         

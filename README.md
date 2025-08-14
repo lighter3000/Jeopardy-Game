@@ -43,6 +43,7 @@ Of course the ReadMe is written by ChatGPT, will be manually written later on
 - More Topics and Questions
 - ~Players and Pointsystem (being displayed either on admin Window or somewhere else)~ -- Done
 - Make it possible to add points to the players via AdminWindow (currently working on it)
+- Make the code better (f.e. AdminWindow and GameWindow are inherited by another super class)
 
 
 ## Future Ideas if I want to (for this project)

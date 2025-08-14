@@ -12,9 +12,10 @@ import model.Question;
 public class QuestionLabel extends JButton{
 
     private Question q;
+    private boolean adminMode;
 
-    public QuestionLabel(int id, String category_name, String question, String answer, int difficulty){
-        q = new Question(id, category_name, question, answer, difficulty);
+    public QuestionLabel(Question question, boolean adminMode){ // int id, String category_name, String question, String answer, int difficulty
+        this.adminMode = adminMode;
         setSize(150, 125);
         addActionListener(new ActionListener() {
             @Override
@@ -24,6 +25,8 @@ public class QuestionLabel extends JButton{
                     JOptionPane.QUESTION_MESSAGE,
                     JOptionPane.DEFAULT_OPTION
                 );
+                JFrame questionFrame = new JFrame("QuestionWindow - " + question.getCategoryName());
+                
                 JDialog dialog = pane.createDialog("Question");
                 dialog.setModal(false);
                 dialog.setVisible(true);

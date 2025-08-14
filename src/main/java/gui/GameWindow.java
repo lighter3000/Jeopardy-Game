@@ -13,7 +13,7 @@ import model.*;
 
 public class GameWindow extends JFrame{
 
-
+    private final boolean isAdminMode = false;
     private final JPanel categoriesContainer;
     private final JPanel playersBar;
     private static List<Category> categories;
@@ -50,7 +50,7 @@ public class GameWindow extends JFrame{
     }
 
     private void addCategory(Category category){
-        CategoryPanel catP = new CategoryPanel(category);
+        CategoryPanel catP = new CategoryPanel(category, isAdminMode);
         categoriesContainer.add(catP);
     }
 
