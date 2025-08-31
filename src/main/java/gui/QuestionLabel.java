@@ -1,7 +1,9 @@
 package gui;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -36,43 +38,70 @@ public class QuestionLabel extends JButton{
         addActionListener(new ActionListener() { // Definitly need to rewrite this mess
             @Override
             public void actionPerformed(ActionEvent e){
+
+                int width = 400;
+                int height = (adminMode) ? 300 : 100;
+
                 JFrame questionFrame = new JFrame("QuestionWindow - " + question.getCategoryName());
-                questionFrame.setPreferredSize(new Dimension(400, 300));
+                questionFrame.setPreferredSize(new Dimension(width, height));
                 questionFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                questionFrame.setLayout(new GridLayout(0, 1));
-                
-                // Question
+                // questionFrame.setLayout(new GridLayout(0, 1));
+                questionFrame.setLayout(new GridBagLayout());
+
+                GridBagConstraints gbc = new GridBagConstraints();
+                gbc.gridx = 0;
+                gbc.fill = GridBagConstraints.BOTH;
+
+
+                // Question (small)
+                gbc.gridy = 0;
+                gbc.weighty = (adminMode) ? 0.2 : 1; // If adminMode, then ratio is 0.2, else 1
                 JPanel questionPanel = new JPanel();
                 questionPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
                 questionPanel.add(new JLabel(question.getQuestion()));
-                questionFrame.add(questionPanel);
+                questionFrame.add(questionPanel, gbc);
 
                 // More Features for the AdminWindow
                 if(adminMode){
-                    // AnswerPanel
+                    // AnswerPanel (small)
+                    gbc.gridy = 1;
+                    gbc.weighty = 0.2;
                     JPanel answerPanel = new JPanel();
                     answerPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-
                     answerPanel.add(new JLabel(question.getAnswer()));
-                    questionFrame.add(answerPanel);
+                    questionFrame.add(answerPanel, gbc);
 
-                    // PlayerPanel
+                    // PlayerPanel (Large)
                     JPanel playersPanel = new JPanel();
                     playersPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+                    playersPanel.setLayout(new GridLayout(players.length, 2, 10, 10));
                     for(Player player : players){
-                        JButton btn = new JButton("Add points to: " + player.getPlayerName());
-                        btn.addActionListener(ev -> {
+                        JButton btnAddPoints = new JButton("Add points to: " + player.getPlayerName());
+                        btnAddPoints.addActionListener(ev -> {
                             player.setPlayerPoints(player.getPlayerPoints() + question.getPoints());
                             if(pointsLabel != null){
                                 pointsLabel[player.getPlayerId()].setText(player.getPlayerPoints() + " pts");
                                 GameWindow.updatePlayerPoints(player);
                             }
-                        }); 
+                        });
+
+                        JButton btnRemovePoints = new JButton("Remove points from: " + player.getPlayerName());
+                        btnRemovePoints.addActionListener(ev -> {
+                            player.setPlayerPoints(player.getPlayerPoints() - question.getPoints());
+                            if(pointsLabel != null){
+                                pointsLabel[player.getPlayerId()].setText(player.getPlayerPoints() + " pts");
+                                GameWindow.updatePlayerPoints(player);
+                            }
+                        });
+
                             
-                        playersPanel.add(btn);
+                        playersPanel.add(btnAddPoints);
+                        playersPanel.add(btnRemovePoints);
                     }
 
-                    questionFrame.add(playersPanel);
+                    gbc.gridy = 2;
+                    gbc.weighty = 0.6;
+                    questionFrame.add(playersPanel, gbc);
                 }
                 questionFrame.pack();
                 questionFrame.setVisible(true);

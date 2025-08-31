@@ -15,15 +15,21 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.Border;
 
+import interfaces.PointsUpdateListener;
 import model.*;
 
-public class AdminWindow extends JFrame{
+public class AdminWindow extends JFrame implements PointsUpdateListener{
 
     private final JPanel categoriesContainer;
     private final JPanel playersBar;
     private final boolean isAdminMode = true;
 
     private JLabel[] playersJLabel;
+    
+
+
+
+
     
     public AdminWindow(String text){
         super(text);
@@ -47,6 +53,9 @@ public class AdminWindow extends JFrame{
         setLocationRelativeTo(null);
     }
 
+
+
+
     public void copyCategories(){
         List<Category> categories = GameWindow.getCategories();
         for(Category category : categories){
@@ -56,6 +65,10 @@ public class AdminWindow extends JFrame{
         categoriesContainer.repaint();
     }
 
+    
+    
+    
+    
     /**
      * @param category
      */
@@ -113,6 +126,12 @@ public class AdminWindow extends JFrame{
         card.add(name);
         card.add(points);
         return card;
+    }
+
+    @Override
+    public void onPointsUpdated(Player player) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'onPointsUpdated'");
     }
 
 

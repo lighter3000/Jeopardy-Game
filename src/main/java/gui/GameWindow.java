@@ -9,9 +9,10 @@ import java.awt.GridLayout;
 import java.util.*;
 
 import generator.CategoryGenerator;
+import interfaces.PointsUpdateListener;
 import model.*;
 
-public class GameWindow extends JFrame{
+public class GameWindow extends JFrame implements PointsUpdateListener{
 
     private final boolean isAdminMode = false;
     private final JPanel categoriesContainer;
@@ -56,9 +57,14 @@ public class GameWindow extends JFrame{
         categoriesContainer.add(catP);
     }
 
+    
     public static List<Category> getCategories(){
         return categories;
     }
+
+
+
+
 
     public void addPlayers(Player[] players) {
         playersBar.setLayout(new GridLayout(1, 0, 8, 0)); // 1 row, as many columns as needed
@@ -75,6 +81,10 @@ public class GameWindow extends JFrame{
         playersBar.revalidate();
         playersBar.repaint();
     }
+
+
+
+
 
     private JPanel addPlayerLabel(Player player) {
         // A tiny "card": 2 rows (name, points), thin border, centered text
@@ -95,12 +105,26 @@ public class GameWindow extends JFrame{
         return card;
     }
 
+
+
+
+
     public static void updatePlayerPoints(Player player) {
-    // prüfe, ob das JLabel existiert
-    if (playersJLabel != null && playersJLabel[player.getPlayerId()] != null) {
+        // prüfe, ob das JLabel existiert
+        if (playersJLabel != null && playersJLabel[player.getPlayerId()] != null) {
+            playersJLabel[player.getPlayerId()].setText(player.getPlayerPoints() + " pts");
+        }
+    }
+
+
+
+
+
+    @Override
+    public void onPointsUpdated(Player player) {
+        // TODO Auto-generated method stub
         playersJLabel[player.getPlayerId()].setText(player.getPlayerPoints() + " pts");
     }
-}
 
 
 

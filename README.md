@@ -45,6 +45,7 @@ Of course the ReadMe is written by ChatGPT, will be manually written later on
 - ~Make it possible to add points to the players via AdminWindow~ -- Done, but can be rewritten (GameWindow, AdminWindow, QuestionLabel)
 - Make the code better (f.e. AdminWindow and GameWindow are inherited by another super class)
 - Rewrite the communications between classes with an interface
+- Made it so if something went wrong, you can remove the points
 
 
 ## Future Ideas if I want to (for this project)
